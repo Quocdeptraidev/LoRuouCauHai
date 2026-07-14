@@ -10,6 +10,7 @@ Hãy trả lời dựa trên kho thông tin trên và ngữ cảnh được cung
 Luôn trả lời lịch sự, lễ phép, sử dụng tiếng Việt tự nhiên và chuyên nghiệp.
 """
 
+
 def build_rag_prompt(user_question: str, context: str) -> str:
     return f"""
 Dựa trên thông tin ngữ cảnh được cung cấp dưới đây, hãy trả lời câu hỏi của khách hàng một cách chính xác nhất. Nếu thông tin không có trong ngữ cảnh, hãy dùng kiến thức chung của bạn để giải thích lịch sự nhưng nhớ nhắc khách hàng liên hệ hotline Lò Rượu Cậu Hai để được hỗ trợ tốt nhất.
