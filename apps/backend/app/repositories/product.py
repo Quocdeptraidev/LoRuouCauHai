@@ -4,18 +4,21 @@ from sqlalchemy import or_, func
 from app.repositories.base import BaseRepository
 from app.models.product import ProductModel
 
+
 class ProductRepository(BaseRepository[ProductModel]):
     def __init__(self, db: AsyncSession):
         super().__init__(ProductModel, db)
 
-    async def search_products(self, query_str: str, skip: int = 0, limit: int = 10) -> list[ProductModel]:
+    async def search_products(
+        self, query_str: str, skip: int = 0, limit: int = 10
+    ) -> list[ProductModel]:
         # Tìm kiếm sản phẩm theo tên hoặc mô tả
         query = (
             select(ProductModel)
             .where(
                 or_(
                     ProductModel.name.ilike(f"%{query_str}%"),
-                    ProductModel.description.ilike(f"%{query_str}%")
+                    ProductModel.description.ilike(f"%{query_str}%"),
                 )
             )
             .offset(skip)
@@ -31,7 +34,7 @@ class ProductRepository(BaseRepository[ProductModel]):
             .where(
                 or_(
                     ProductModel.name.ilike(f"%{query_str}%"),
-                    ProductModel.description.ilike(f"%{query_str}%")
+                    ProductModel.description.ilike(f"%{query_str}%"),
                 )
             )
         )

@@ -1,0 +1,66 @@
+name: Lò Rượu Cậu Hai - CI Pipeline
+
+on:
+  push:
+    branches: [ main, develop, "update/*" ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  # --- JOB 1: KIỂM TRA FRONTEND ---
+  frontend-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout mã nguồn
+        uses: actions/checkout@v4
+
+      - name: Khởi tạo Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: apps/frontend/package-lock.json
+
+      - name: Cài đặt Dependencies Frontend
+        run: |
+          cd apps/frontend
+          npm ci
+
+      - name: Chạy Lint kiểm tra chất lượng code
+        run: |
+          cd apps/frontend
+          npm run lint
+
+      - name: Chạy thử nghiệm đóng gói (Build Test)
+        run: |
+          cd apps/frontend
+          npm run build
+
+  # --- JOB 2: KIỂM TRA BACKEND ---
+  backend-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout mã nguồn
+        uses: actions/checkout@v4
+
+      - name: Khởi tạo Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: apps/backend/requirements.txt
+
+      - name: Cài đặt Dependencies Backend
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r apps/backend/requirements.txt
+
+      - name: Kiểm tra Format và Lint bằng Ruff
+        run: |
+          ruff check apps/backend
+          ruff format --check apps/backend
+
+      - name: Kiểm tra kiểu dữ liệu tĩnh bằng MyPy
+        run: |
+          # Chỉ chạy nếu mypy được cấu hình (tạm thời bỏ qua nếu thiếu file config, hoặc chạy trực tiếp)
+          mypy apps/backend/app

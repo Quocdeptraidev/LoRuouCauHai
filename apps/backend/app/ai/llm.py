@@ -2,6 +2,7 @@ import asyncio
 import google.generativeai as genai
 from app.core.config import settings
 
+
 class GeminiClient:
     def __init__(self):
         self.api_key = settings.GEMINI_API_KEY
@@ -22,20 +23,19 @@ class GeminiClient:
             )
         try:
             loop = asyncio.get_event_loop()
-            
+
             # Khởi tạo model kèm system instruction
             model_with_instruction = genai.GenerativeModel(
-                model_name="gemini-1.5-flash",
-                system_instruction=system_instruction
+                model_name="gemini-1.5-flash", system_instruction=system_instruction
             )
-            
+
             # Chạy đồng bộ SDK trong executor để không block event loop của FastAPI
             response = await loop.run_in_executor(
-                None, 
-                lambda: model_with_instruction.generate_content(prompt)
+                None, lambda: model_with_instruction.generate_content(prompt)
             )
             return response.text
         except Exception as e:
             return f"Đã xảy ra lỗi khi gọi AI Service: {str(e)}"
+
 
 gemini_client = GeminiClient()
