@@ -1,0 +1,7 @@
+{
+  "apps/frontend/**/*.{ts,tsx}": [
+    "npx prettier --write --config apps/frontend/.prettierrc",
+    "npx eslint --fix"
+  ],
+  "app/backend/**/*.{py}": ["ruff format", "ruff check", "mypy"]
+}
