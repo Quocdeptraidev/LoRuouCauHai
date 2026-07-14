@@ -3,7 +3,11 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "build:frontend": "npm --prefix apps/frontend run build",
+    "build:backend": "docker compose build backend",
+    "build": "npm run build:frontend && npm run build:backend",
+    "verify": "npm run build:frontend"
   },
   "devDependencies": {
     "husky": "^9.0.11",
