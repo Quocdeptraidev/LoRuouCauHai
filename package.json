@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "prepare": "husky",
+    "dev:frontend": "npm --prefix apps/frontend run dev",
     "build:frontend": "npm --prefix apps/frontend run build",
     "build:backend": "docker compose build backend",
     "build": "npm run build:frontend && npm run build:backend",
