@@ -1,3 +1,6 @@
+import React from 'react'
+import { Map } from '../../ui'
+
 export const Footer: React.FC = () => {
   return (
     <footer className="w-full border-t border-brand-wine-dark/10 dark:border-black/20 bg-brand-wine dark:bg-brand-wine-dark text-white/80 dark:text-white/70 py-12">
@@ -14,6 +17,10 @@ export const Footer: React.FC = () => {
           <address className="mt-3 text-xs text-white/60 dark:text-white/50 not-italic">
             Địa chỉ sản xuất: Thôn Trung, Xã Tiên Tân, Thành phố Phủ Lý, Hà Nam
           </address>
+
+          <div className="mt-4 w-full md:w-[400px]">
+            <Map height="220px" />
+          </div>
         </section>
 
         {/* Cột 2: Đường dẫn nhanh */}

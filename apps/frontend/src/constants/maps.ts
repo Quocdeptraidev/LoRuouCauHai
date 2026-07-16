@@ -1,0 +1,7 @@
+export const DEFAULT_MAP_CENTER = {
+  lat: 10.797072,
+  lng: 106.5848507,
+}
+
+export const GOOGLE_MAP_URL =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.185869351197!2d106.58485069999996!3d10.797072000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bbca46b140f%3A0x40ad92bac66bf69a!2zTG_MgCBSxrDGocyjdSBDw6LMo3UgSGFp!5e0!3m2!1svi!2s!4v1784101458433!5m2!1svi!2s'
