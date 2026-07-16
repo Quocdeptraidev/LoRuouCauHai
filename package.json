@@ -8,6 +8,10 @@
     "build:frontend": "npm --prefix apps/frontend run build",
     "build:backend": "docker compose build backend",
     "build": "npm run build:frontend && npm run build:backend",
+    "lint:frontend": "npm --prefix apps/frontend run lint",
+    "lint:backend": "node scripts/lint-backend.mjs",
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "setup:backend": "node scripts/setup-backend.mjs",
     "verify": "npm run build:frontend"
   },
   "devDependencies": {

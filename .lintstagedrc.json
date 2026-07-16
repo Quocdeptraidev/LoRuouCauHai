@@ -3,5 +3,9 @@
     "npx prettier --write --config apps/frontend/.prettierrc",
     "npx eslint --fix"
   ],
-  "app/backend/**/*.{py}": ["ruff format", "ruff check", "mypy"]
+  "apps/backend/**/*.py": [
+    "node scripts/python-exec.mjs -m ruff format",
+    "node scripts/python-exec.mjs -m ruff check --fix",
+    "node scripts/python-exec.mjs -m mypy apps/backend/app"
+  ]
 }
