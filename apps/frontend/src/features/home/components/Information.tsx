@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from '../../../components/ui'
 import { Sparkles, ArrowRight, MessageCircle } from 'lucide-react'
+import { INFORMATION_CONTENT } from '../constants/contents'
 
 interface InformationProps {
   badgeText?: string
@@ -13,11 +14,11 @@ interface InformationProps {
 }
 
 export const Information: React.FC<InformationProps> = ({
-  badgeText = 'Tinh hoa Rượu truyền thống Việt Nam',
-  title = 'Lò Rượu Cậu Hai Chưng Cất Hạ Thổ',
-  description = 'Sự giao thoa hoàn mỹ giữa công thức chưng cất thủ công truyền thống lâu đời và quy trình ngâm ủ hạ thổ khắt khe. Gìn giữ trọn vẹn hương vị êm đằm, nồng nàn mà sang trọng trong từng giọt rượu quê hương.',
-  primaryBtnText = 'Nhận tư vấn ngay',
-  secondaryBtnText = 'Khám phá sản phẩm',
+  badgeText = INFORMATION_CONTENT.badgeText,
+  title = INFORMATION_CONTENT.title,
+  description = INFORMATION_CONTENT.description,
+  primaryBtnText = INFORMATION_CONTENT.primaryBtnText,
+  secondaryBtnText = INFORMATION_CONTENT.secondaryBtnText,
   onPrimaryClick,
   onSecondaryClick,
 }) => {

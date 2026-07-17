@@ -1,6 +1,7 @@
 import React from 'react'
 import { Banner } from '../components/Banner'
 import { Information } from '../components/Information'
+import { ProductList } from '../components/ProductList'
 import { Skeleton } from '../../../components/ui'
 import { useHomeData } from '../hooks/useHomeData'
 
@@ -28,22 +29,14 @@ export const HomePage: React.FC = () => {
         <Information
           onPrimaryClick={() => window.open('https://zalo.me', '_blank')}
           onSecondaryClick={() => {
-            const element = document.getElementById('home-intro-heading')
+            const element = document.getElementById('home-products-heading')
             element?.scrollIntoView({ behavior: 'smooth' })
           }}
         />
       </section>
 
-      {/* Phần giới thiệu nội dung Lò Rượu */}
-      {/* <section className="text-center py-12" aria-labelledby="home-intro-heading">
-        <h2 id="home-intro-heading" className="text-3xl font-extrabold text-amber-500 font-serif">
-          Hương Vị Rượu Quê Truyền Thống
-        </h2>
-        <p className="mt-4 max-w-2xl mx-auto text-neutral-400 leading-relaxed text-sm sm:text-base">
-          Mỗi giọt rượu Cậu Hai đều trải qua quá trình chưng cất tỉ mỉ từ gạo nếp cái hoa vàng hạt
-          tròn mẩy, kết hợp với men thuốc bắc 36 vị gia truyền và ngâm hạ thổ đủ ngày đủ tháng.
-        </p>
-      </section> */}
+      {/* Danh sách sản phẩm chưng cất */}
+      <ProductList />
     </div>
   )
 }
