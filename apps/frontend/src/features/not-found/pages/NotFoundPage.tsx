@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ROUTES } from '../../../constants/routes'
+import { PATHS } from '../../../app/routes'
 
 /** Minh họa tạm: người thợ nấu rượu cạnh bình sứ 404 (SVG inline) */
 const NotFoundIllustration: React.FC = () => (
@@ -111,13 +111,13 @@ export const NotFoundPage: React.FC = () => {
 
       <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
         <Link
-          to={ROUTES.HOME}
+          to={PATHS.HOME}
           className="inline-flex h-12 items-center justify-center rounded-xl bg-[#D3822B] px-8 text-sm font-bold text-white shadow-sm transition-colors hover:bg-[#c27422]"
         >
           Về trang chủ
         </Link>
         <Link
-          to={ROUTES.PRODUCTS}
+          to={PATHS.PRODUCTS}
           className="inline-flex h-12 items-center justify-center rounded-xl border border-[#70202F] bg-transparent px-8 text-sm font-semibold text-[#70202F] transition-colors hover:bg-[#70202F]/[0.06]"
         >
           Xem sản phẩm
