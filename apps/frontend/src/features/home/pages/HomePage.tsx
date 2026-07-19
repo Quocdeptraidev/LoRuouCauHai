@@ -4,7 +4,7 @@ import { Banner } from '../components/Banner'
 import { Information } from '../components/Information'
 import { ProductList } from '../components/ProductList'
 import { Skeleton } from '../../../components/ui'
-import { ROUTES } from '../../../constants/routes'
+import { PATHS } from '../../../app/routes'
 import { useHomeData } from '../hooks/useHomeData'
 
 export const HomePage: React.FC = () => {
@@ -31,7 +31,7 @@ export const HomePage: React.FC = () => {
       <section className="w-full">
         <Information
           onPrimaryClick={() => window.open('https://zalo.me', '_blank')}
-          onSecondaryClick={() => navigate(ROUTES.PRODUCTS)}
+          onSecondaryClick={() => navigate(PATHS.PRODUCTS)}
         />
       </section>
 

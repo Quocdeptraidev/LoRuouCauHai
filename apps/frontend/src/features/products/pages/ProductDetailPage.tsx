@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
-import { ROUTES } from '../../../constants/routes'
+// import { ROUTES } from '../../constants/routes'
+import { PATHS } from '../../../app/routes'
 import { ProductGallery } from '../components/ProductGallery'
 import { ProductInfo } from '../components/ProductInfo'
 import { RelatedProducts } from '../components/RelatedProducts'
@@ -23,7 +24,7 @@ export const ProductDetailPage: React.FC = () => {
           Sản phẩm bạn đang tìm có thể đã được đổi tên hoặc không còn trong danh mục.
         </p>
         <Link
-          to={ROUTES.PRODUCTS}
+          to={PATHS.PRODUCTS}
           className="mt-2 inline-flex h-11 items-center justify-center rounded-lg bg-brand-wine px-6 text-sm font-bold text-white hover:bg-brand-wine-hover"
         >
           Về danh sách sản phẩm
@@ -38,7 +39,7 @@ export const ProductDetailPage: React.FC = () => {
         <p className="font-serif text-2xl font-bold text-red-800">Không thể tải sản phẩm</p>
         <p className="max-w-md text-sm text-red-600">{error}</p>
         <Link
-          to={ROUTES.PRODUCTS}
+          to={PATHS.PRODUCTS}
           className="mt-2 inline-flex h-11 items-center justify-center rounded-lg border border-neutral-300 px-6 text-sm font-bold text-neutral-700 hover:bg-neutral-50"
         >
           Về danh sách sản phẩm
@@ -54,7 +55,7 @@ export const ProductDetailPage: React.FC = () => {
       <nav aria-label="Breadcrumb" className="text-sm text-neutral-500">
         <ol className="flex flex-wrap items-center gap-1.5">
           <li>
-            <Link to={ROUTES.HOME} className="transition-colors hover:text-brand-wine">
+            <Link to={PATHS.HOME} className="transition-colors hover:text-brand-wine">
               Trang chủ
             </Link>
           </li>
@@ -62,7 +63,7 @@ export const ProductDetailPage: React.FC = () => {
             <ChevronRight className="h-3.5 w-3.5" />
           </li>
           <li>
-            <Link to={ROUTES.PRODUCTS} className="transition-colors hover:text-brand-wine">
+            <Link to={PATHS.PRODUCTS} className="transition-colors hover:text-brand-wine">
               Sản phẩm
             </Link>
           </li>

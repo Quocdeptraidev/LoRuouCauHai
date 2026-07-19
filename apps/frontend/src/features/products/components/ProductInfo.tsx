@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Phone, Wine } from 'lucide-react'
 import { Skeleton } from '../../../components/ui'
-import { ROUTES } from '../../../constants/routes'
+import { PATHS } from '../../../app/routes'
 import type { Product } from '../types'
 import {
   formatProductPrice,
@@ -117,7 +117,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, isLoading = f
         </a>
 
         <Link
-          to={ROUTES.PRODUCTS}
+          to={PATHS.PRODUCTS}
           className="inline-flex h-11 items-center justify-center rounded-lg border border-neutral-300 px-6 text-sm font-semibold text-neutral-800 transition-colors hover:bg-neutral-100/50"
         >
           Về danh sách
