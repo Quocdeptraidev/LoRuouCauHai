@@ -1,10 +1,9 @@
 import React from 'react'
 import { Button } from '../../../components/ui'
-import { Sparkles, ArrowRight, MessageCircle } from 'lucide-react'
+import { ArrowRight, MessageCircle } from 'lucide-react'
 import { INFORMATION_CONTENT } from '../constants/contents'
 
 interface InformationProps {
-  badgeText?: string
   title?: string
   description?: string
   primaryBtnText?: string
@@ -14,7 +13,7 @@ interface InformationProps {
 }
 
 export const Information: React.FC<InformationProps> = ({
-  badgeText = INFORMATION_CONTENT.badgeText,
+  // badgeText = INFORMATION_CONTENT.badgeText,
   title = INFORMATION_CONTENT.title,
   description = INFORMATION_CONTENT.description,
   primaryBtnText = INFORMATION_CONTENT.primaryBtnText,
@@ -24,12 +23,6 @@ export const Information: React.FC<InformationProps> = ({
 }) => {
   return (
     <article className="flex flex-col items-center text-center space-y-6 max-w-2xl py-6 sm:py-10 mx-auto">
-      {/* Badge điểm nhấn */}
-      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs sm:text-sm font-semibold text-amber-500 shadow-sm shadow-amber-500/5 select-none animate-fade-in">
-        <Sparkles className="h-3.5 w-3.5 animate-pulse" />
-        <span>{badgeText}</span>
-      </div>
-
       {/* Tiêu đề chính */}
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight font-serif text-neutral-900 dark:text-white leading-tight">
         {title.split(' ').map((word, index) => {

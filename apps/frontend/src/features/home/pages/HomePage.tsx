@@ -1,12 +1,15 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Banner } from '../components/Banner'
 import { Information } from '../components/Information'
 import { ProductList } from '../components/ProductList'
 import { Skeleton } from '../../../components/ui'
+import { PATHS } from '../../../app/routes'
 import { useHomeData } from '../hooks/useHomeData'
 
 export const HomePage: React.FC = () => {
   const { banners, isLoading, error } = useHomeData()
+  const navigate = useNavigate()
 
   return (
     <div className="space-y-16">
@@ -28,10 +31,7 @@ export const HomePage: React.FC = () => {
       <section className="w-full">
         <Information
           onPrimaryClick={() => window.open('https://zalo.me', '_blank')}
-          onSecondaryClick={() => {
-            const element = document.getElementById('home-products-heading')
-            element?.scrollIntoView({ behavior: 'smooth' })
-          }}
+          onSecondaryClick={() => navigate(PATHS.PRODUCTS)}
         />
       </section>
 
